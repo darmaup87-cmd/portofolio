@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Portofolio pribadi Satria Ramadhan, mahasiswa Teknik Informatika.">
+	<title>Portofolio | Satria Ramadhan</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<style>
+		:root { --ink: #0b100f; --panel: #141b19; --paper: #edf3f0; --muted: #9ca9a5; --accent: #70c7b8; --accent-dark: #2e746b; --line: rgba(237, 243, 240, 0.14); }
+		* { box-sizing: border-box; }
+		html { scroll-behavior: smooth; }
+		body { margin: 0; background: var(--ink); color: var(--paper); font-family: "Space Grotesk", sans-serif; line-height: 1.6; }
+		@keyframes reveal { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+		.hero > div { animation: reveal .8s ease both; }
+		.hero-art { animation: reveal .8s .15s ease both; }
+		body::before { background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px); background-size: 42px 42px; content: ""; inset: 0; pointer-events: none; position: fixed; z-index: -1; }
+		a { color: inherit; }
+		.site-header { align-items: center; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; margin: 0 auto; max-width: 1180px; padding: 24px 32px; }
+		.brand { align-items: center; display: flex; gap: 12px; text-decoration: none; }
+		.brand-mark { align-items: center; border: 1px solid var(--accent); color: var(--accent); display: flex; font-size: .82rem; font-weight: 700; height: 42px; justify-content: center; letter-spacing: -.06em; width: 42px; }
+		.brand-name { font-size: .8rem; font-weight: 700; letter-spacing: .16em; line-height: 1.2; text-transform: uppercase; }
+		.brand-name span { color: var(--accent); display: block; }
+		.site-nav ul { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+		.site-nav a { color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-decoration: none; text-transform: uppercase; }
+		.site-nav a:hover, .site-nav a:focus { color: var(--accent); }
+		.hero { align-items: end; display: grid; gap: 40px; grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr); margin: 0 auto; max-width: 1180px; min-height: 650px; padding: 110px 32px 90px; }
+		.eyebrow { color: var(--accent); font-size: .75rem; font-weight: 700; letter-spacing: .22em; margin: 0 0 18px; text-transform: uppercase; }
+		h1, h2, h3 { line-height: .95; margin-top: 0; }
+		h1 { font-size: clamp(4rem, 11vw, 8.5rem); font-weight: 700; letter-spacing: -.08em; margin-bottom: 28px; max-width: 760px; }
+		h1 span { color: var(--accent); display: block; }
+		.hero-copy { color: var(--muted); font-size: 1.05rem; max-width: 500px; }
+		.hero-copy strong { color: var(--paper); }
+		.button { background: var(--accent); border: 1px solid var(--accent); color: var(--ink); display: inline-block; font-size: .75rem; font-weight: 700; letter-spacing: .14em; margin-top: 20px; padding: 15px 22px; text-decoration: none; text-transform: uppercase; transition: background .2s, transform .2s; }
+		.button:hover, .button:focus { background: var(--paper); transform: translateY(-3px); }
+		.button-outline { background: transparent; border-color: var(--line); margin-left: 10px; }
+		.hero-art { align-items: center; border: 1px solid var(--line); display: flex; height: 330px; justify-content: center; position: relative; }
+		.hero-art::before { border: 1px solid var(--accent-dark); content: ""; inset: 22px; position: absolute; }
+		.profile-photo { height: 100%; object-fit: cover; object-position: center 35%; position: relative; width: 100%; z-index: 1; }
+		.section { border-top: 1px solid var(--line); margin: 0 auto; max-width: 1180px; padding: 90px 32px; }
+		.section-heading { align-items: end; display: flex; justify-content: space-between; margin-bottom: 40px; }
+		h2 { font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 700; letter-spacing: -.07em; margin-bottom: 0; }
+		.section-heading p { color: var(--muted); margin: 0; max-width: 360px; }
+		.experience-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+		.experience-card { background: var(--panel); border-left: 2px solid var(--accent); padding: 28px; }
+		.experience-card time { color: var(--accent); font-size: .75rem; font-weight: 700; letter-spacing: .12em; }
+		.experience-card h3 { font-size: 1.2rem; margin: 18px 0 10px; }
+		.experience-card p { color: var(--muted); font-size: .9rem; margin: 0; }
+		.project-grid, .skills-grid { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+		.project-card, .skill-item { background: var(--panel); border: 1px solid var(--line); padding: 28px; }
+		.project-card h3 { font-size: 1.3rem; margin: 12px 0; }
+		.project-card p { color: var(--muted); margin: 0 0 18px; }
+		.project-tag, .skill-level { color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+		.project-placeholder { border: 1px dashed var(--accent-dark); color: var(--muted); display: block; font-size: .85rem; padding: 14px; }
+		.skill-title { display: flex; justify-content: space-between; font-weight: 700; }
+		.skill-bar { background: #29292d; height: 5px; margin-top: 12px; overflow: hidden; }
+		.skill-bar span { background: var(--accent); display: block; height: 100%; width: 45%; }
+		.skill-bar span.medium { width: 60%; }
+		.cv-box { align-items: center; background: var(--accent-dark); display: flex; justify-content: space-between; padding: 28px; }
+		.cv-box p { margin: 0; }
+		.cv-box .button { background: var(--paper); color: var(--ink); margin: 0; }
+		.photo-grid { display: grid; gap: 18px; grid-template-columns: repeat(2, 1fr); }
+		.photo-grid figure { margin: 0; overflow: hidden; position: relative; }
+		.photo-grid img { display: block; filter: grayscale(100%); height: 100%; min-height: 220px; object-fit: cover; transition: filter .3s, transform .3s; width: 100%; }
+		.photo-grid figure:hover img { filter: grayscale(0%); transform: scale(1.04); }
+		.photo-grid figcaption { background: rgba(8, 8, 9, .82); bottom: 0; color: var(--paper); font-size: .75rem; left: 0; letter-spacing: .08em; padding: 10px 14px; position: absolute; text-transform: uppercase; width: 100%; }
+		.tour-list { border-top: 1px solid var(--line); }
+		.tour-row { align-items: center; border-bottom: 1px solid var(--line); display: grid; gap: 20px; grid-template-columns: 90px 1fr 180px; padding: 22px 0; }
+		.tour-date { color: var(--accent); font-size: .8rem; font-weight: 700; letter-spacing: .12em; }
+		.tour-city { font-size: 1.15rem; font-weight: 700; }
+		.tour-venue { color: var(--muted); font-size: .9rem; }
+		.tour-link { color: var(--paper); font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-align: right; text-decoration: none; text-transform: uppercase; }
+		.tour-link:hover { color: var(--accent); }
+		.contact-grid { display: grid; gap: 60px; grid-template-columns: .8fr 1.2fr; }
+		.contact-copy { color: var(--muted); max-width: 390px; }
+		.social-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+		.social-links a { border: 1px solid var(--line); color: var(--paper); font-size: .72rem; font-weight: 700; letter-spacing: .1em; padding: 10px 13px; text-decoration: none; text-transform: uppercase; }
+		.social-links a:hover { border-color: var(--accent); color: var(--accent); }
+		form { display: grid; gap: 10px; }
+		label { font-size: .75rem; font-weight: 700; letter-spacing: .1em; margin-top: 8px; text-transform: uppercase; }
+		input, textarea { background: var(--panel); border: 1px solid var(--line); color: var(--paper); font: inherit; padding: 14px; resize: vertical; }
+		input:focus, textarea:focus { border-color: var(--accent); outline: 2px solid transparent; }
+		form .button { cursor: pointer; justify-self: start; }
+		footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; letter-spacing: .08em; padding: 28px 32px; text-align: center; text-transform: uppercase; }
+		@media (max-width: 700px) {
+			.site-header { align-items: flex-start; flex-direction: column; gap: 22px; padding: 20px; }
+			.site-nav ul { gap: 16px; }
+			.hero { display: block; min-height: auto; padding: 80px 20px 70px; }
+			h1 { font-size: clamp(3.8rem, 20vw, 7rem); }
+			.hero-art { margin-top: 60px; }
+			.section { padding: 70px 20px; }
+			.section-heading { align-items: flex-start; flex-direction: column; gap: 18px; }
+			.tour-row { grid-template-columns: 70px 1fr; }
+			.tour-link { grid-column: 2; text-align: left; }
+			.experience-grid, .project-grid, .skills-grid, .contact-grid, .photo-grid { grid-template-columns: 1fr; }
+			.photo-grid img { height: 280px; }
+			.contact-grid { gap: 35px; }
+			.cv-box { align-items: flex-start; flex-direction: column; gap: 20px; }
+			.button-outline { margin-left: 0; }
+			footer { padding: 24px 20px; }
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<a class="brand" href="#perkenalan" aria-label="Kembali ke perkenalan"><span class="brand-mark">DSR</span><span class="brand-name">Darma Satria <span>Ramadhan</span></span></a>
+		<nav class="site-nav" aria-label="Navigasi utama"><ul><li><a href="#tentang">Tentang</a></li><li><a href="#pengalaman">Pengalaman</a></li><li><a href="#proyek">Proyek</a></li><li><a href="#keahlian">Keahlian</a></li><li><a href="#foto">Foto</a></li><li><a href="#kontak">Kontak</a></li></ul></nav>
+	</header>
+	<main>
+		<section class="hero" id="perkenalan" aria-labelledby="judul-utama">
+			<div><p class="eyebrow">Portofolio pribadi / Mahasiswa TI</p><h1 id="judul-utama">Halo, saya <span>Satria</span></h1><p class="hero-copy">Saya mahasiswa Teknik Informatika semester 1 di <strong>STT Nurul Fikri</strong> yang sedang mengembangkan kemampuan coding, desain web, dan bisnis digital.</p><a class="button" href="#tentang">Tentang saya</a><a class="button button-outline" href="#cv">Lihat CV</a></div>
+			<div class="hero-art" aria-label="Foto profil Satria Ramadhan"><img class="profile-photo" src="foto/WhatsApp%20Image%202026-09-14%20at%2023.52.12%20(1).jpeg" alt="Satria Ramadhan di pantai"></div>
+		</section>
+		<section class="section" id="tentang" aria-labelledby="judul-tentang">
+			<div class="section-heading"><h2 id="judul-tentang">Tentang saya</h2><p>Pribadi adaptif yang senang belajar dari rasa ingin tahu.</p></div>
+			<p class="hero-copy">Saya memilih Teknik Informatika karena memiliki minat besar pada teknologi. Saya cepat beradaptasi dengan situasi dan karakter orang yang berbeda. Di luar coding, saya senang bermain gitar, mencoba hal baru, dan terus belajar sesuai minat saya.</p>
+		</section>
+		<section class="section" id="pengalaman" aria-labelledby="judul-pengalaman">
+			<div class="section-heading"><h2 id="judul-pengalaman">Pengalaman</h2><p>Langkah awal Satria dalam belajar teknologi, memimpin kegiatan, dan menyelesaikan proyek.</p></div>
+			<div class="experience-grid">
+				<article class="experience-card"><time datetime="2026">2026 - SEKARANG</time><h3>Mahasiswa Teknik Informatika</h3><p>Menempuh semester pertama di STT Nurul Fikri setelah lulus dari SMAN 1 Bojonggede pada 2026.</p></article>
+				<article class="experience-card"><time>PROYEK PRIBADI</time><h3>Portofolio & Game Python</h3><p>Membuat portofolio sejak SMA dan menyelesaikan game sederhana dengan Python melalui pembelajaran otodidak.</p></article>
+				<article class="experience-card"><time>PENGALAMAN SMA</time><h3>Ketua Pentas Seni</h3><p>Memimpin pentas seni kelas, berkoordinasi dengan teman, dan beradaptasi dengan berbagai karakter dalam tim.</p></article>
+				<article class="experience-card"><time>KEAHLIAN SAAT INI</time><h3>HTML, Python & VS Code</h3><p>Memiliki dasar HTML dan Python, terbiasa menggunakan VS Code, serta terus mengasah kemampuan melalui kuliah dan belajar mandiri.</p></article>
+			</div>
+		</section>
+		<section class="section" id="proyek" aria-labelledby="judul-proyek">
+			<div class="section-heading"><h2 id="judul-proyek">Proyek</h2><p>Ruang untuk menampilkan karya yang akan saya kembangkan.</p></div>
+			<div class="project-grid"><article class="project-card"><span class="project-tag">PROYEK 01 / WEB</span><h3>Portofolio Personal</h3><p>Website personal branding untuk memperkenalkan diri, pendidikan, pengalaman, dan minat saya.</p><span class="project-placeholder">Tambahkan link proyek di sini</span></article><article class="project-card"><span class="project-tag">PROYEK 02 / PYTHON</span><h3>Game Sederhana</h3><p>Game sederhana yang dibuat sebagai tugas SMA menggunakan Python dan diselesaikan melalui belajar otodidak.</p><span class="project-placeholder">Tambahkan screenshot atau link GitHub di sini</span></article></div>
+		</section>
+		<section class="section" id="keahlian" aria-labelledby="judul-keahlian">
+			<div class="section-heading"><h2 id="judul-keahlian">Keahlian</h2><p>Dasar yang sedang saya kembangkan menuju kemampuan profesional.</p></div>
+			<div class="skills-grid"><div class="skill-item"><div class="skill-title"><span>HTML</span><span class="skill-level">Dasar</span></div><div class="skill-bar"><span></span></div></div><div class="skill-item"><div class="skill-title"><span>Python</span><span class="skill-level">Dasar</span></div><div class="skill-bar"><span></span></div></div><div class="skill-item"><div class="skill-title"><span>VS Code & Codex</span><span class="skill-level">Terbiasa</span></div><div class="skill-bar"><span class="medium"></span></div></div><div class="skill-item"><div class="skill-title"><span>Adaptasi & Problem Solving</span><span class="skill-level">Berkembang</span></div><div class="skill-bar"><span class="medium"></span></div></div></div>
+		</section>
+		<section class="section" id="foto" aria-labelledby="judul-foto">
+			<div class="section-heading"><h2 id="judul-foto">Foto</h2><p>Beberapa momen yang menunjukkan sisi kreatif, proses belajar, dan minat saya pada musik.</p></div>
+			<div class="photo-grid">
+				<figure><img src="foto/WhatsApp%20Image%202026-09-14%20at%2023.51.11%20.jpeg" alt="Satria Ramadhan sedang tampil memainkan gitar di atas panggung" loading="lazy"><figcaption>Live performance</figcaption></figure>
+				<figure><img src="foto/WhatsApp%20Image%202026-09-14%20at%2023.51.11%20(2).jpeg" alt="Satria bersama tim dalam kegiatan sekolah" loading="lazy"><figcaption>Belajar & berkarya</figcaption></figure>
+			</div>
+		</section>
+		<section class="section" id="cv" aria-labelledby="judul-cv">
+			<div class="cv-box"><p id="judul-cv"><strong>Ingin melihat perjalanan saya lebih lengkap?</strong><br>Tempatkan file PDF CV Anda pada tombol ini.</p><a class="button" href="cv-satria-ramadhan.pdf" target="_blank" rel="noopener">Lihat CV PDF</a></div>
+		</section>
+		<section class="section" id="kontak" aria-labelledby="judul-kontak">
+			<div class="contact-grid"><div><p class="eyebrow">Personal branding</p><h2 id="judul-kontak">Terhubung</h2><p class="contact-copy">Saya terus mengasah skill HTML, Python, dan VS Code. Dalam 3-5 tahun ke depan, saya ingin menjadi programmer profesional, membangun relasi luas, serta mengembangkan bisnis digital.</p><p class="contact-copy"><a href="mailto:darmaup87@gmail.com">darmaup87@gmail.com</a></p><div class="social-links"><a href="#" aria-label="Tempat untuk link GitHub">GitHub</a><a href="#" aria-label="Tempat untuk link LinkedIn">LinkedIn</a></div></div>
+				<form action="#" method="post"><label for="nama">Nama</label><input type="text" id="nama" name="nama" autocomplete="name" required><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" required><label for="pesan">Pesan</label><textarea id="pesan" name="pesan" rows="5" required></textarea><button class="button" type="submit">Kirim pesan</button></form>
+			</div>
+		</section>
+	</main>
+	<footer><p>&copy; 2026 Satria Ramadhan. Dibuat dengan rasa ingin tahu dan kopi.</p></footer>
+</body>
+</html>
